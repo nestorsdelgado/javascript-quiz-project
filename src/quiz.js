@@ -51,4 +51,28 @@ class Quiz {
         }
     }
 
+    // Day02
+    filterQuestionsByDifficulty(difficulty){
+       
+        if (typeof difficulty === 'number' && difficulty >= 1 && difficulty <= 3) {
+            this.questions = this.questions.filter(question => question.difficulty === difficulty);
+        }
+    }
+
+    averageDifficulty(){
+
+        // Verificamos si hay preguntas, y si no la hay devolvemos 0.
+        if (this.questions.length === 0) {
+            return 0;
+        }
+
+        // Sumamos las dificultades
+        const totalDifficulty = this.questions.reduce((suma, question) => {
+            return suma + (question.difficulty || 0);
+        }, 0);
+
+        // Calculamos el promedio y lo devolvemos
+        return totalDifficulty / this.questions.length;
+    }
+
 }
