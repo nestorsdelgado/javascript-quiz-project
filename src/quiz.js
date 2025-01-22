@@ -67,8 +67,8 @@ class Quiz {
         }
 
         // Sumamos las dificultades
-        const totalDifficulty = this.questions.reduce((suma, question) => {
-            return suma + (question.difficulty || 0);
+        const totalDifficulty = this.questions.reduce((suma, preguntas) => {
+            return suma + (preguntas.difficulty || 0);
         }, 0);
 
         // Calculamos el promedio y lo devolvemos
