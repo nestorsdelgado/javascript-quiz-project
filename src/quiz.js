@@ -37,7 +37,7 @@ class Quiz {
         // questions -> array de Questions(la otra clase) -> cuyo tercer index es la respuesta
         // si answer = correcta
 
-        if(this.questions.answer == this.answer) {
+        if(this.questions[this.currentQuestionIndex].answer == answer) {
             this.correctAnswers++
         }
     }

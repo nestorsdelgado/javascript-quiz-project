@@ -175,17 +175,11 @@ console.log(respuesta.value)
       // Move to the next question by calling the quiz method `moveToNextQuestion()`.
       // Show the next question by calling the function `showQuestion()`.
 
-      if(selectedAnswer == questions[quiz.currentQuestionIndex].answer) {
-        quiz.correctAnswers++
-      
-      }
+      quiz.checkAnswer(selectedAnswer)
 
       quiz.moveToNextQuestion();
-      quiz.showQuestion();
-      
+      showQuestion()
   }  
-
-
 
 
   function showResults() {
@@ -199,7 +193,19 @@ console.log(respuesta.value)
     endView.style.display = "flex";
     
     // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
-    resultContainer.innerText = `You scored 1 out of 1 correct answers!`; // This value is hardcoded as a placeholder
+    
+    //resultContainer.innerText = `You scored 1 out of 1 correct answers!`; // This value is hardcoded as a placeholder
+    resultContainer.innerText = `You scored ${(quiz.correctAnswers)} out of ${(quiz.questions.length)} correct answers!`; // This value is hardcoded as a placeholder
+
   }
   
+// Implement a Restart Quiz button
+const botonReinicio = document.getElementById("restartButton");
+
+botonReinicio.addEventListener('click', () => {
+
+  location.reload()
+});
+
+
 });
